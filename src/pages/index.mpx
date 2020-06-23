@@ -1,0 +1,35 @@
+<template>
+  <view>
+    <view>this is index.mpx!!!!!!!!</view>
+    <view>
+      <button bindtap="toListPage">去列表页</button>
+    </view>
+  </view>
+</template>
+
+<script>
+  import{ createPage } from '@mpxjs/core'
+
+  createPage({
+    onLoad () {},
+    methods: {
+      toListPage () {
+        wx.navigateTo({
+          url: '/pages/list',
+          success: res => {
+            console.log('res: ', res)
+          }
+        })
+      }
+    }
+  })
+</script>
+
+<script type="application/json">
+  {
+    "usingComponents": {
+      
+    },
+    "navigationBarTitleText": "首页"
+  }
+</script>

@@ -3,6 +3,8 @@
     <view>this is index.mpx!!!!!!!!</view>
     <view>
       <button bindtap="toListPage">去列表页</button>
+      <button bindtap="toPackageACat">去A分包Cat页</button>
+      <button bindtap="toPackageBDog">去B分包Dog页</button>
     </view>
   </view>
 </template>
@@ -19,6 +21,16 @@
           success: res => {
             console.log('res: ', res)
           }
+        })
+      },
+      toPackageACat () {
+        wx.navigateTo({
+          url: '/packageA/cat'
+        })
+      },
+      toPackageBDog () {
+        wx.navigateTo({
+          url: '/packageB/dog'
         })
       }
     }

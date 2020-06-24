@@ -45,7 +45,11 @@ const webpackConf = {
   mode: 'none',
   resolve: {
     extensions: ['.mpx', '.js', '.wxml', '.vue'],
-    modules: ['node_modules']
+    modules: ['node_modules'],
+    alias: {
+      'src': resolve('src'),
+      "static": resolve('static')
+    }
   }
 }
 

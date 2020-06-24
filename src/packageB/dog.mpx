@@ -1,0 +1,18 @@
+<template>
+  <view>
+    <view>hello packageB dog.mpx</view>
+    <image src="{{dogAvatar}}"></image>
+  </view>
+</template>
+
+<script>
+  import{ createPage } from '@mpxjs/core'
+  import dogAvatar from 'static/images/dog.jpg?packageName=main'
+
+  createPage({
+    data: {
+      dogAvatar
+    },
+    onLoad () {}
+  })
+</script>

@@ -15,22 +15,31 @@
 
 </style>
 
-<script type="application/json">
-  {
+<script name="json">
+  module.exports = {
     "pages": [
-      "./pages/index?a=1",
-      "./pages/list"
-    ]
+      "./pages/index",
+      // "./pages/list?root=list&name=listName"
+    ],
+    "packages": [
+      // "./packageA/packageA.mpx?root=packageA",
+      // "./packageB/packageB.mpx?root=packageB&name=packageSecond"
+    ],
+    "preloadRule": {
+      "pages/index": {
+        "network": "all",
+        "packages": ["packageA"]
+      }
+    },
+    "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#fff",
+      "navigationBarTextStyle": "black",
+      "renderingMode": "mixed"
+    },
+    "networkTimeout": {
+      "request": 10000,
+      "downloadFile": 10000
+    }
   }
 </script>
-
-<!--也可以通过以下形式用js输出json，便于书写注释和使用条件编译-->
-
-<!--<script name="json">-->
-<!--  // 可以写注释，通过defs注入的常量做一些判断之类的操作-->
-<!--  module.exports = {-->
-<!--    pages: [-->
-<!--      './pages/index'-->
-<!--    ]-->
-<!--  }-->
-<!--</script>-->

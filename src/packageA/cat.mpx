@@ -1,0 +1,18 @@
+<template>
+  <view>
+    <view>hello packageA cat.mpx</view>
+    <image src="{{catAvatar}}"></image>
+  </view>
+</template>
+
+<script>
+  import{ createPage } from '@mpxjs/core'
+  import catAvatar from 'static/images/cat.jpg'
+
+  createPage({
+    data: {
+      catAvatar
+    },
+    onLoad () {}
+  })
+</script>

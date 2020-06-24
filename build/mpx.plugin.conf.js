@@ -4,6 +4,11 @@ function resolve (dir = '') {
   return path.join(__dirname, '..', dir)
 }
 
+const originalArgv = JSON.parse(process.env.npm_config_argv)
+  .original
+  .filter(item => item.indexOf('--') === 0)
+  .map(item => item.slice(2))
+
 // 可以在此配置mpx webpack plugin，会assign进build.js里new创建plugin的config里
 module.exports = {
   // resolve的模式
@@ -28,7 +33,11 @@ module.exports = {
   },
 
   // 给模板和json中定义一些全局环境变量
-  defs: {},
+  defs: {
+    "__platform__": originalArgv.indexOf('web') === -1 ? JSON.stringify('mini') : JSON.stringify('web')
+  },
+
+  // externals: ['weui'],
 
   // 是否转换px到rpx
   transRpxRules: [

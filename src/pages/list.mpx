@@ -7,17 +7,20 @@
 
   createPage({
     onLoad () {
-      console.log('hahahehe: ', hahahehe)
+      // console.log('hahahehe: ', hahahehe)
     }
   })
 </script>
 
-<script type="application/json">
-  {
+<script name="json">
+  const config = {
     "usingComponents": {
       
     },
-    "navigationBarTitleText": "列表页",
-    "backgroundColor": "blue"
+    "navigationBarTitleText": "列表页" 
   }
+  if (__platform__ === 'web') {
+    config.backgroundColor = 'blue'
+  }
+  module.exports = config
 </script>

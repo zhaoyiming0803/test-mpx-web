@@ -1,0 +1,8 @@
+<script name="json">
+module.exports = {
+  pages: [
+    './dog',
+    './cat'
+  ]
+}
+</script>

@@ -57,8 +57,8 @@
 
 <script name="json">
   const wxComponents = {
-    "mp-icon": "/miniprogram_npm/weui-miniprogram/icon/icon",
-    "mp-dialog": "/miniprogram_npm/weui-miniprogram/dialog/dialog"
+    "mp-icon": "weui-miniprogram/icon/icon",
+    "mp-dialog": "weui-miniprogram/dialog/dialog"
   }
   module.exports = {
     "usingComponents": __mpx_mode__ === 'wx' 

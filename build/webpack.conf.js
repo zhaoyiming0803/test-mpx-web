@@ -45,10 +45,11 @@ const webpackConf = {
   mode: 'none',
   resolve: {
     extensions: ['.mpx', '.js', '.wxml', '.vue'],
-    modules: ['node_modules'],
+    modules: [path.resolve(__dirname, '../src'), 'node_modules'],
     alias: {
       'src': resolve('src'),
-      "static": resolve('static')
+      "static": resolve('static'),
+      "@weui-miniprogram": "weui-miniprogram"
     }
   }
 }

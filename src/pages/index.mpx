@@ -6,6 +6,10 @@
       <button bindtap="toPackageACat">去A分包Cat页</button>
       <button bindtap="toPackageBDog">去B分包Dog页</button>
     </view>
+    <mp-icon icon="play" color="black" size="{{25}}" bindtap="showDialog"></mp-icon>
+    <mp-dialog title="test" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+      <view>test content</view>
+    </mp-dialog>
   </view>
 </template>
 
@@ -13,6 +17,11 @@
   import{ createPage } from '@mpxjs/core'
 
   createPage({
+    data: {
+      dialogShow: false,
+      showOneButtonDialog: false,
+      buttons: [{text: '取消'}, {text: '确定'}],
+    },
     onLoad () {},
     methods: {
       toListPage () {
@@ -32,6 +41,13 @@
         wx.navigateTo({
           url: '/packageB/dog'
         })
+      },
+      tapDialogButton () {
+        this.dialogShow = false
+        this.showOneButtonDialog = false
+      },
+      showDialog () {
+        this.dialogShow = true
       }
     }
   })
@@ -40,7 +56,8 @@
 <script type="application/json">
   {
     "usingComponents": {
-      
+      "mp-icon": "/miniprogram_npm/weui-miniprogram/icon/icon",
+      "mp-dialog": "/miniprogram_npm/weui-miniprogram/dialog/dialog"
     },
     "navigationBarTitleText": "首页"
   }

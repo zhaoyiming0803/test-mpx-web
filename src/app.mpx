@@ -40,6 +40,9 @@
     "networkTimeout": {
       "request": 10000,
       "downloadFile": 10000
+    },
+    "useExtendedLib": {
+      "weui": true
     }
   }
 </script>

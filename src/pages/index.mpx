@@ -6,10 +6,12 @@
       <button bindtap="toPackageACat">去A分包Cat页</button>
       <button bindtap="toPackageBDog">去B分包Dog页</button>
     </view>
-    <mp-icon icon="play" color="black" size="{{25}}" bindtap="showDialog"></mp-icon>
-    <mp-dialog title="test" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
-      <view>test content</view>
-    </mp-dialog>
+    <view wx:if="{{__mpx_mode__ === 'wx'}}">
+      <mp-icon icon="play" color="black" size="{{25}}" bindtap="showDialog"></mp-icon>
+      <mp-dialog title="test" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+        <view>test content</view>
+      </mp-dialog>
+    </view>
   </view>
 </template>
 
@@ -53,12 +55,15 @@
   })
 </script>
 
-<script type="application/json">
-  {
-    "usingComponents": {
-      "mp-icon": "/miniprogram_npm/weui-miniprogram/icon/icon",
-      "mp-dialog": "/miniprogram_npm/weui-miniprogram/dialog/dialog"
-    },
+<script name="json">
+  const wxComponents = {
+    "mp-icon": "/miniprogram_npm/weui-miniprogram/icon/icon",
+    "mp-dialog": "/miniprogram_npm/weui-miniprogram/dialog/dialog"
+  }
+  module.exports = {
+    "usingComponents": __mpx_mode__ === 'wx' 
+      ? Object.assign({}, wxComponents)
+      : {},
     "navigationBarTitleText": "首页"
   }
 </script>

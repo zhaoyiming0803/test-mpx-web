@@ -64,6 +64,7 @@
     "usingComponents": __mpx_mode__ === 'wx' 
       ? Object.assign({}, wxComponents)
       : {},
-    "navigationBarTitleText": "首页"
+    "navigationBarTitleText": "首页",
+    "backgroundColor": "blue"
   }
 </script>

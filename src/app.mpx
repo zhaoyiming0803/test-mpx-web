@@ -2,13 +2,16 @@
   import mpx, { createApp } from '@mpxjs/core'
   import apiProxy from '@mpxjs/api-proxy'
 
-  mpx.use(apiProxy, { usePromise: true })
   // app.js
   createApp({
     onLaunch () {
-      console.log('App launch')
+      
     }
   })
+
+  const app = getApp()
+  mpx.use(apiProxy, { usePromise: true })
+  console.log('app end')
 </script>
 
 <style>
@@ -19,11 +22,11 @@
   module.exports = {
     "pages": [
       "./pages/index",
-      // "./pages/list?root=list&name=listName"
+      "./pages/list?root=list&name=listName"
     ],
     "packages": [
-      // "./packageA/packageA.mpx?root=packageA",
-      // "./packageB/packageB.mpx?root=packageB&name=packageSecond"
+      "./packageA/packageA.mpx?root=packageA",
+      "./packageB/packageB.mpx?root=packageB&name=packageSecond"
     ],
     "preloadRule": {
       "pages/index": {
@@ -35,7 +38,8 @@
       "backgroundTextStyle": "light",
       "navigationBarBackgroundColor": "#fff",
       "navigationBarTextStyle": "black",
-      "renderingMode": "mixed"
+      "renderingMode": "mixed",
+      "navigationBarTitleText": 'hahahahah'
     },
     "networkTimeout": {
       "request": 10000,

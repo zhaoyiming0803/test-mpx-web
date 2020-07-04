@@ -16,15 +16,18 @@
 </template>
 
 <script>
-  import{ createPage } from '@mpxjs/core'
-
+  import mpx, { createPage } from '@mpxjs/core'
+  console.log('app: ', getApp())
+  console.log('apiProxy: ', mpx.request)
   createPage({
     data: {
       dialogShow: false,
       showOneButtonDialog: false,
       buttons: [{text: '取消'}, {text: '确定'}],
     },
-    onLoad () {},
+    created () {
+      console.log('this.$options: ', this.$options)
+    },
     methods: {
       toListPage () {
         wx.navigateTo({
@@ -64,7 +67,11 @@
     "usingComponents": __mpx_mode__ === 'wx' 
       ? Object.assign({}, wxComponents)
       : {},
-    "navigationBarTitleText": "首页",
-    "backgroundColor": "blue"
+    "navigationBarTitleText": "首页123",
+    "navigationBarBackgroundColor": "red",
+    "navigationBarTextStyle": "orange",
+    "backgroundColor": "yellow",
+    "backgroundTextStyle": "green",
+    "enablePullDownRefresh": true
   }
 </script>

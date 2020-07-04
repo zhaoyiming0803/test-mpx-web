@@ -1,7 +1,7 @@
 <template>
   <view>
     <view>hello packageA cat.mpx</view>
-    <image src="{{catAvatar}}"></image>
+    <image wx:if="{{__mpx_mode__ !== 'web'}}" src="{{catAvatar}}"></image>
   </view>
 </template>
 

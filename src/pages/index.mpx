@@ -68,8 +68,8 @@
       ? Object.assign({}, wxComponents)
       : {},
     "navigationBarTitleText": "首页123",
-    "navigationBarBackgroundColor": "red",
-    "navigationBarTextStyle": "orange",
+    "navigationBarBackgroundColor": "#ccc",
+    "navigationBarTextStyle": "white",
     "backgroundColor": "yellow",
     "backgroundTextStyle": "green",
     "enablePullDownRefresh": true

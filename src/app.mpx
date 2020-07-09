@@ -10,8 +10,8 @@
   })
 
   const app = getApp()
-  mpx.use(apiProxy, { usePromise: true })
-  console.log('app end')
+  mpx.use(apiProxy, { usePromise: true, network: app.networkTimeout })
+  // console.log('app end: ', app)
 </script>
 
 <style>

@@ -17,7 +17,7 @@
 
 <script>
   import mpx, { createPage } from '@mpxjs/core'
-  console.log('app: ', getApp())
+  console.log('index app: ', getApp())
   console.log('apiProxy: ', mpx.request)
   createPage({
     data: {

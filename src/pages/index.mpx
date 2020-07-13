@@ -20,6 +20,9 @@
   console.log('index app: ', getApp())
   console.log('apiProxy: ', mpx.request)
   createPage({
+    options: {
+      aaa: 123
+    },
     data: {
       dialogShow: false,
       showOneButtonDialog: false,
@@ -27,6 +30,7 @@
     },
     created () {
       console.log('this.$options: ', this.$options)
+      console.log('this.options: ', this.$options.options)
     },
     methods: {
       toListPage () {

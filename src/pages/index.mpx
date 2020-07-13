@@ -1,6 +1,6 @@
 <template>
   <view>
-    <view>this is index.mpx!!!!!!!!</view>
+    <view wx:class="{active: isActive}" bindtap="switchActiveStatus">this is index.mpx!!!!!!!!</view>
     <view>
       <button bindtap="toListPage">去列表页</button>
       <button bindtap="toPackageACat">去A分包Cat页</button>
@@ -27,6 +27,7 @@
       dialogShow: false,
       showOneButtonDialog: false,
       buttons: [{text: '取消'}, {text: '确定'}],
+      isActive: true
     },
     created () {
       console.log('this.$options: ', this.$options)
@@ -57,6 +58,9 @@
       },
       showDialog () {
         this.dialogShow = true
+      },
+      switchActiveStatus () {
+        this.isActive = !this.isActive
       }
     }
   })

@@ -80,6 +80,7 @@
     "navigationBarTextStyle": "white",
     "backgroundColor": "yellow",
     "backgroundTextStyle": "green",
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh": true,
+    "abc": 123
   }
 </script>

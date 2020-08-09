@@ -12,6 +12,15 @@
         <view>test content</view>
       </mp-dialog>
     </view>
+    <view>
+      <mpx-button>button1</mpx-button>
+      <mpx-navigation-bar 
+        navigationBarTitleText="sdf" 
+        navigationBarBackgroundColor="#f00"
+        navigationBarTextStyle="black">
+      </mpx-navigation-bar>
+      <mpx-button>button2</mpx-button>
+    </view>
   </view>
 </template>
 
@@ -32,6 +41,9 @@
     created () {
       console.log('this.$options: ', this.$options)
       console.log('this.options: ', this.$options.options)
+      mpx.showToast({})
+
+      window.__mpx = mpx
     },
     methods: {
       toListPage () {
@@ -74,7 +86,9 @@
   module.exports = {
     "usingComponents": __mpx_mode__ === 'wx' 
       ? Object.assign({}, wxComponents)
-      : {},
+      : {
+        "mpx-navigation-bar": "@mpxjs/webpack-plugin/lib/runtime/components/web/mpx-navigation-bar.vue"
+      },
     "navigationBarTitleText": "首页123",
     "navigationBarBackgroundColor": "#ccc",
     "navigationBarTextStyle": "white",

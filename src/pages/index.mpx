@@ -14,11 +14,6 @@
     </view>
     <view>
       <mpx-button>button1</mpx-button>
-      <mpx-navigation-bar 
-        navigationBarTitleText="sdf" 
-        navigationBarBackgroundColor="#f00"
-        navigationBarTextStyle="black">
-      </mpx-navigation-bar>
       <mpx-button>button2</mpx-button>
     </view>
   </view>
@@ -87,7 +82,7 @@
     "usingComponents": __mpx_mode__ === 'wx' 
       ? Object.assign({}, wxComponents)
       : {
-        "mpx-navigation-bar": "@mpxjs/webpack-plugin/lib/runtime/components/web/mpx-navigation-bar.vue"
+        // "mpx-navigation-bar": "@mpxjs/webpack-plugin/lib/runtime/components/web/mpx-navigation-bar.vue"
       },
     "navigationBarTitleText": "首页123",
     "navigationBarBackgroundColor": "#ccc",

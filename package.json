@@ -20,13 +20,13 @@
   "author": "zhaoyiming",
   "license": "ISC",
   "dependencies": {
-    "@mpxjs/api-proxy": "^2.5.33",
+    "@mpxjs/api-proxy": "latest",
     "vue": "^2.6.10",
     "vue-i18n": "^8.15.3",
-    "@mpxjs/core": "^2.5.33"
+    "@mpxjs/core": "latest"
   },
   "devDependencies": {
-    "@mpxjs/webpack-plugin": "^2.5.33",
+    "@mpxjs/webpack-plugin": "latest",
     "acorn": "^7.3.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",

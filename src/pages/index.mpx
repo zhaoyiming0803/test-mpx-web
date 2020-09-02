@@ -1,6 +1,6 @@
 <template>
   <view>
-    <view wx:class="{active: isActive}" bindtap="switchActiveStatus">this is index.mpx!!!!!!!!</view>
+    <!-- <view wx:class="{active: isActive}" bindtap="switchActiveStatus">this is index.mpx!!!!!!!!</view>
     <view>
       <button bindtap="toListPage">去列表页</button>
       <button bindtap="toPackageACat">去A分包Cat页</button>
@@ -15,7 +15,9 @@
     <view>
       <mpx-button>button1</mpx-button>
       <mpx-button>button2</mpx-button>
-    </view>
+    </view> -->
+    <view class="test-container"></view>
+    <view class="test-container"></view>
   </view>
 </template>
 
@@ -39,6 +41,12 @@
       mpx.showToast({})
 
       window.__mpx = mpx
+    },
+    onPullDownRefresh: function () {
+      console.log('onPullDownRefresh');
+    },
+    onReachBottom: function () {
+      console.log('onReachBottom');
     },
     methods: {
       toListPage () {
@@ -88,8 +96,17 @@
     "navigationBarBackgroundColor": "#ccc",
     "navigationBarTextStyle": "white",
     "backgroundColor": "yellow",
-    "backgroundTextStyle": "green",
+    "backgroundTextStyle": "dark",
     "enablePullDownRefresh": true,
     "abc": 123
   }
 </script>
+
+<style lang="stylus">
+.test-container {
+  margin-bottom 20px
+  width: 100%
+  height 1000px
+  background-color red
+}
+</style>

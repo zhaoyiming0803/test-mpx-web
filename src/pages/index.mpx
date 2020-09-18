@@ -1,10 +1,13 @@
 <template>
   <view>
-    <!-- <view wx:class="{active: isActive}" bindtap="switchActiveStatus">this is index.mpx!!!!!!!!</view>
+    <view wx:class="{active: isActive}" bindtap="switchActiveStatus">this is index.mpx!!!!!!!!</view>
     <view>
       <button bindtap="toListPage">去列表页</button>
       <button bindtap="toPackageACat">去A分包Cat页</button>
       <button bindtap="toPackageBDog">去B分包Dog页</button>
+      <button bindtap="scrollToSelector">scroll to #selector</button>
+      <button bindtap="startPullDown">开始下拉刷新</button>
+      <button bindtap="stopPullDown">停止下拉刷新</button>
     </view>
     <view wx:if="{{__mpx_mode__ === 'wx'}}">
       <mp-icon icon="play" color="black" size="{{25}}" bindtap="showDialog"></mp-icon>
@@ -15,9 +18,16 @@
     <view>
       <mpx-button>button1</mpx-button>
       <mpx-button>button2</mpx-button>
-    </view> -->
-    <view class="test-container"></view>
-    <view class="test-container"></view>
+    </view>
+    <view class="test-container">
+      <view>{{ dialogShow }}</view>
+      <view>{{ showOneButtonDialog }}</view>
+      <view wx:if="{{ isActive }}">{{ list }}</view>
+    </view>
+    <view class="test-container" id="selector"></view>
+    <!-- <button loading="{{ true }}" bindtap="clickButton">this is mpx button</button>
+    <icon type="success" color="red"></icon> -->
+    <view class="hello" bindtap="toPackageACat">hello world</view>
   </view>
 </template>
 
@@ -30,23 +40,25 @@
       aaa: 123
     },
     data: {
+      pageName: 'index',
       dialogShow: false,
       showOneButtonDialog: false,
       buttons: [{text: '取消'}, {text: '确定'}],
-      isActive: true
+      isActive: true,
+      list: '12345'
     },
     created () {
-      console.log('this.$options: ', this.$options)
-      console.log('this.options: ', this.$options.options)
-      mpx.showToast({})
-
-      window.__mpx = mpx
+      // console.log('this.$options: ', this.$options)
+      // console.log('this.options: ', this.$options.options) 
+    },
+    onPageScroll (e) {
+      console.log('onPageScroll: ', e)
     },
     onPullDownRefresh: function () {
-      console.log('onPullDownRefresh');
+      console.log('onPullDownRefresh')
     },
     onReachBottom: function () {
-      console.log('onReachBottom');
+      console.log('onReachBottom: ', this.buttons)
     },
     methods: {
       toListPage () {
@@ -76,6 +88,26 @@
       },
       switchActiveStatus () {
         this.isActive = !this.isActive
+      },
+      clickButton () {},
+      scrollToSelector () {
+        wx.pageScrollTo({
+          // scrollTop: 0,
+          selector: '#selector',
+          duration: 4000,
+          success: function (params) {
+            console.log('success: ', params)
+          },
+          complete: function (params) {
+            console.log('complete: ', params)
+          }
+        })
+      },
+      startPullDown () {
+        wx.startPullDownRefresh()
+      },
+      stopPullDown () {
+        wx.stopPullDownRefresh()
       }
     }
   })
@@ -83,23 +115,24 @@
 
 <script name="json">
   const wxComponents = {
-    "mp-icon": "weui-miniprogram/icon/icon",
-    "mp-dialog": "weui-miniprogram/dialog/dialog"
+    // "mp-icon": "weui-miniprogram/icon/icon",
+    // "mp-dialog": "weui-miniprogram/dialog/dialog"
   }
   module.exports = {
     "usingComponents": __mpx_mode__ === 'wx' 
       ? Object.assign({}, wxComponents)
       : {
+        // "mpx-button": "@mpxjs/webpack-plugin/lib/runtime/components/web/mpx-button.vue"
         // "mpx-navigation-bar": "@mpxjs/webpack-plugin/lib/runtime/components/web/mpx-navigation-bar.vue"
       },
     "navigationBarTitleText": "首页123",
     "navigationBarBackgroundColor": "#ccc",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "yellow",
+    // "backgroundColor": "yellow",
     "backgroundTextStyle": "dark",
-    "enablePullDownRefresh": false,
-    "disableScroll": false,
-    "abc": 123
+    "enablePullDownRefresh": true,
+    "disableScroll": false
+    // "abc": 123
   }
 </script>
 
@@ -109,5 +142,13 @@
   width: 100%
   height 1000px
   background-color red
+}
+.hello {
+  position: fixed
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background: blue;
 }
 </style>

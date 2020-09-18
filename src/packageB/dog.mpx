@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view style="height: 1000px">
     <view>hello packageB dog.mpx</view>
     <image wx:if="{{__mpx_mode__ !== 'web'}}" src="{{dogAvatar}}"></image>
   </view>
@@ -11,8 +11,19 @@
 
   createPage({
     data: {
-      dogAvatar
+      dogAvatar,
+      pageName: 'packageB/dog'
     },
-    onLoad () {}
+    onLoad () {},
+    onPageScroll (e) {
+      console.log('onPageScroll: ', e)
+    }
   })
+</script>
+
+<script name="json">
+module.exports = {
+  "enablePullDownRefresh": false,
+  "disableScroll": false
+}
 </script>

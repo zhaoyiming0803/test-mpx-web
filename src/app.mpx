@@ -28,19 +28,19 @@
       "./packageA/packageA.mpx?root=packageA",
       "./packageB/packageB.mpx?root=packageB&name=packageSecond"
     ],
-    "tabBar": {
-      "custom": true,
-      "list": [
-        {
-          "pagePath": "pages/index",
-          "text": "首页"
-        },
-        {
-          "pagePath": "pages/list",
-          "text": "列表页"
-        }
-      ]
-    },
+    // "tabBar": {
+    //   "custom": false,
+    //   "list": [
+    //     {
+    //       "pagePath": "pages/index",
+    //       "text": "首页"
+    //     },
+    //     {
+    //       "pagePath": "pages/list",
+    //       "text": "列表页"
+    //     }
+    //   ]
+    // },
     "preloadRule": {
       "pages/index": {
         "network": "all",

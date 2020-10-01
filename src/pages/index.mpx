@@ -1,33 +1,31 @@
 <template>
-  <view>
-    <view wx:class="{active: isActive}" bindtap="switchActiveStatus">this is index.mpx!!!!!!!!</view>
-    <view>
-      <button bindtap="toListPage">去列表页</button>
-      <button bindtap="toPackageACat">去A分包Cat页</button>
-      <button bindtap="toPackageBDog">去B分包Dog页</button>
-      <button bindtap="scrollToSelector">scroll to #selector</button>
-      <button bindtap="startPullDown">开始下拉刷新</button>
-      <button bindtap="stopPullDown">停止下拉刷新</button>
+  <view class="container">
+    <view class="box">
+      <view wx:class="{active: isActive}" bindtap="switchActiveStatus">this is index.mpx!!!!!!!!</view>
+      <view>
+        <button bindtap="toListPage">去列表页</button>
+        <button bindtap="toPackageACat">去A分包Cat页</button>
+        <button bindtap="toPackageBDog">去B分包Dog页</button>
+        <button bindtap="scrollToSelector">ease scroll to #selector</button>
+        <button bindtap="startPullDown">开始下拉刷新</button>
+        <button bindtap="stopPullDown">停止下拉刷新</button>
+      </view>
+      <view wx:if="{{__mpx_mode__ === 'wx'}}">
+        <mp-icon icon="play" color="black" size="{{25}}" bindtap="showDialog"></mp-icon>
+        <mp-dialog title="test" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+          <view>test content</view>
+        </mp-dialog>
+      </view>
+      <view class="test-container">
+        <view>{{ dialogShow }}</view>
+        <view>{{ showOneButtonDialog }}</view>
+        <view wx:if="{{ isActive }}">{{ list }}</view>
+      </view>
+      <view class="test-container" id="selector"></view>
+      <!-- <button loading="{{ true }}" bindtap="clickButton">this is mpx button</button>
+      <icon type="success" color="red"></icon> -->
+      <view class="tabbar" bindtap="toPackageACat">fixed</view>
     </view>
-    <view wx:if="{{__mpx_mode__ === 'wx'}}">
-      <mp-icon icon="play" color="black" size="{{25}}" bindtap="showDialog"></mp-icon>
-      <mp-dialog title="test" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
-        <view>test content</view>
-      </mp-dialog>
-    </view>
-    <view>
-      <mpx-button>button1</mpx-button>
-      <mpx-button>button2</mpx-button>
-    </view>
-    <view class="test-container">
-      <view>{{ dialogShow }}</view>
-      <view>{{ showOneButtonDialog }}</view>
-      <view wx:if="{{ isActive }}">{{ list }}</view>
-    </view>
-    <view class="test-container" id="selector"></view>
-    <!-- <button loading="{{ true }}" bindtap="clickButton">this is mpx button</button>
-    <icon type="success" color="red"></icon> -->
-    <view class="hello" bindtap="toPackageACat">hello world</view>
   </view>
 </template>
 
@@ -52,7 +50,7 @@
       // console.log('this.options: ', this.$options.options) 
     },
     onPageScroll (e) {
-      console.log('onPageScroll: ', e)
+      console.log('onPageScroll - scrollTop: ', e.scrollTop)
     },
     onPullDownRefresh: function () {
       console.log('onPullDownRefresh')
@@ -94,7 +92,7 @@
         wx.pageScrollTo({
           // scrollTop: 0,
           selector: '#selector',
-          duration: 4000,
+          duration: 3000,
           success: function (params) {
             console.log('success: ', params)
           },
@@ -143,12 +141,21 @@
   height 1000px
   background-color red
 }
-.hello {
+.tabbar {
   position: fixed
-  top: 0;
+  top : 20px;
   left: 0;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
+  line-height 50px
+  text-align center
   background: blue;
+  color: #fff;
+}
+.box {
+  // position: absolute
+  top 0
+  left 0
+  width 100%
 }
 </style>

@@ -2,6 +2,10 @@
   <view style="height: 1000px">
     <view>hello packageB dog.mpx</view>
     <image wx:if="{{__mpx_mode__ !== 'web'}}" src="{{dogAvatar}}"></image>
+    <image src="./dog.jpg"></image>
+
+    <image class="test" src="./dog.png"></image>
+    <image class="test" src="{{img}}"></image>
   </view>
 </template>
 
@@ -12,6 +16,7 @@
   createPage({
     data: {
       dogAvatar,
+      img: require('./dog.jpg'),
       pageName: 'packageB/dog'
     },
     onLoad () {},

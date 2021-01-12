@@ -1,7 +1,8 @@
 <script>
   import mpx, { createApp } from '@mpxjs/core'
   import apiProxy from '@mpxjs/api-proxy'
-
+  mpx.use(apiProxy)
+  
   // app.js
   createApp({
     onLaunch () {
@@ -10,12 +11,12 @@
   })
 
   const app = getApp()
-  mpx.use(apiProxy, { usePromise: true, network: app.networkTimeout })
-  // console.log('app end: ', app)
+   mpx.use(apiProxy, { usePromise: true, network: app.networkTimeout })
+  console.log('app end: ', app)
 </script>
 
 <style>
-
+ @import "./main.wxss";
 </style>
 
 <script name="json">

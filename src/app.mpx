@@ -1,6 +1,10 @@
 <script>
   import mpx, { createApp } from '@mpxjs/core'
   import apiProxy from '@mpxjs/api-proxy'
+  import './mock/index'
+  import mpxFetch from '@mpxjs/fetch'
+  
+  mpx.use(mpxFetch)
   mpx.use(apiProxy)
   
   // app.js

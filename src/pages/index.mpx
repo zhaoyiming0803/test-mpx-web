@@ -37,6 +37,7 @@
     </view>
     <list my-class="red-text"></list>
     <button bindtap="upload">上传文件</button>
+    <button bindtap="testMock">发送请求，测试mock</button>
   </view>
 </template>
 
@@ -54,9 +55,8 @@
 
   async function func2 () {
     await func1()
-    console.log(123)
     Promise.resolve().then(() => {
-      console.log(321)
+
     })
   }
 
@@ -173,6 +173,23 @@
         })
 
         console.log('uploadTask: ', uploadTask.onProgressUpdate);
+      },
+      testMock () {
+        mpx.xfetch.fetch({
+          url: 'http://localhost:8085/a/b/c'
+        }).then(res => {
+          console.log(res.data)
+        })
+
+        // wx.request({
+        //   url: 'http://localhost:8085/a/b/c',
+        //   success: (res) => {
+        //     console.log('success: ', res)
+        //   },
+        //   fail: (res) => {
+        //     console.log('fail: ', res)
+        //   }
+        // })
       }
     }
   })

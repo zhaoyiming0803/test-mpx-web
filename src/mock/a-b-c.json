@@ -1,0 +1,24 @@
+{
+  "url": "http://localhost:8085/a/b/c",
+  "rule": {
+    "line_data": [
+      {
+        "lng": "116.283651",
+        "lat": "40.049580",
+        "msg": "weoirhjoiwemfoiwejirfoesi",
+        "type": 0,
+        "uid": "1205031211010",
+        "status": 0
+      },
+      {
+        "lng": "116.305561",
+        "lat": "40.053424",
+        "msg": "sdofijsdoifjosdifnodisfj",
+        "type": 1,
+        "uid": "1205031211010",
+        "status": 0
+      }
+    ],
+    "test_data": "hello world"
+  }
+}

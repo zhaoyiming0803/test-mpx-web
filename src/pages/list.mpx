@@ -24,3 +24,9 @@
   }
   module.exports = config
 </script>
+
+<style lang="less">
+  .container {
+    font-size: 30px;
+  }
+</style>

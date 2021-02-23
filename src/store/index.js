@@ -11,10 +11,35 @@ const moduleA = {
   }
 }
 
-const store = createStore({
-  modules: {
-    moduleA,
-    loginModule
+// const store = createStore({
+//   modules: {
+//     moduleA,
+//     loginModule
+//   },
+//   popup: {
+
+//   }
+// })
+
+const state = {
+  token: '123'
+}
+
+const getters = {
+  token: state => state.token
+}
+
+const mutations = {
+  setToken (state, data) {
+    state.token = data
   }
+}
+
+const actions = {}
+
+export default createStore({
+  state,
+  getters,
+  actions,
+  mutations
 })
-export default store

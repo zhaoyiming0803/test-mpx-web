@@ -39,6 +39,9 @@
     <button bindtap="upload">上传文件</button>
     <button bindtap="testMock">发送请求，测试mock</button>
     <button bindtap="resetToken">reset token</button>
+    <mp-dialog title="test" show="{{true}}" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消'}, {text: '确认'}]}}">
+      <view>test content</view>
+    </mp-dialog>
   </view>
 </template>
 
@@ -241,13 +244,16 @@
     // "mp-dialog": "weui-miniprogram/dialog/dialog"
   }
   module.exports = {
-    "usingComponents": __mpx_mode__ === 'wx' 
-      ? Object.assign({}, wxComponents)
-      : {
-        list: 'src/components/list'
-        // "mpx-button": "@mpxjs/webpack-plugin/lib/runtime/components/web/mpx-button.vue"
-        // "mpx-navigation-bar": "@mpxjs/webpack-plugin/lib/runtime/components/web/mpx-navigation-bar.vue"
-      },
+    // "usingComponents": __mpx_mode__ === 'wx' 
+    //   ? Object.assign({}, wxComponents)
+    //   : {
+    //     list: 'src/components/list'
+    //     // "mpx-button": "@mpxjs/webpack-plugin/lib/runtime/components/web/mpx-button.vue"
+    //     // "mpx-navigation-bar": "@mpxjs/webpack-plugin/lib/runtime/components/web/mpx-navigation-bar.vue"
+    //   },
+    usingComponents: {
+      'mp-dialog': '@weui-miniprogram/miniprogram_dist/dialog/dialog'
+    },
     "navigationBarTitleText": "首页123",
     "navigationBarBackgroundColor": "#ccc",
     "navigationBarTextStyle": "white",

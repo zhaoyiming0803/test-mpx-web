@@ -20,7 +20,8 @@
 </script>
 
 <style>
- @import "./main.wxss";
+ @import '~weui-miniprogram/miniprogram_dist/weui-wxss/dist/style/weui.wxss';
+ @import '~weui-miniprogram/miniprogram_dist/weui-wxss/dist/style/icon/weui-icon.wxss';
 </style>
 
 <script name="json">

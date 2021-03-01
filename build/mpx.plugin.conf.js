@@ -37,7 +37,7 @@ module.exports = {
     "__platform__": originalArgv.indexOf('web') === -1 ? JSON.stringify('mini') : JSON.stringify('web')
   },
 
-  externals: ['weui'],
+  // externals: ['weui'],
 
   // 是否转换px到rpx
   transRpxRules: [

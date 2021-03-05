@@ -27,12 +27,7 @@
 <script name="json">
   module.exports = {
     "pages": [
-      "./pages/index",
-      "./pages/list?root=list&name=listName"
-    ],
-    "packages": [
-      "./packageA/packageA.mpx?root=packageA",
-      "./packageB/packageB.mpx?root=packageB&name=packageSecond"
+      "./pages/index"
     ],
     // "tabBar": {
     //   "custom": false,

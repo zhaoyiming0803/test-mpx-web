@@ -1,5 +1,5 @@
 <template>
-  <view class="list my-class">
+  <view class="list my-class" wx:if="{{false}}">
     <view wx:for="{{listData}}" wx:key="index">{{item}}</view>
   </view>
 </template>
@@ -25,6 +25,11 @@
     },
     attached () {
       console.log('mixins in component: ', this.hehe)
+    },
+    methods: {
+      testFn () {
+        console.log('this is testFn')
+      }
     }
   })
 </script>

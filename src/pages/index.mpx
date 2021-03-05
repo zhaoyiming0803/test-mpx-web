@@ -1,238 +1,21 @@
 <template>
-  <view class="container my-class lines-green">
-    <view class="box">
-      <view wx:class="{active: isActive}" bindtap="switchActiveStatus">this is index.mpx!!!!!!!!</view>
-      <view>
-        <button bindtap="toListPage">去列表页</button>
-        <button bindtap="toPackageACat">去A分包Cat页</button>
-        <button bindtap="toPackageBDog">去B分包Dog页</button>
-        <button bindtap="scrollToSelector">ease scroll to #selector</button>
-        <button bindtap="startPullDown">开始下拉刷新</button>
-        <button bindtap="stopPullDown">停止下拉刷新</button>
-      </view>
-      <view wx:if="{{__mpx_mode__ === 'wx'}}">
-        <mp-icon icon="play" color="black" size="{{25}}" bindtap="showDialog"></mp-icon>
-        <mp-dialog title="test" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
-          <view>test content</view>
-        </mp-dialog>
-      </view>
-      <view class="test-container">
-        <view>{{ dialogShow }}</view>
-        <view>{{ showOneButtonDialog }}</view>
-        <view wx:if="{{ isActive }}">{{ list }}</view>
-      </view>
-      <view class="test-container" id="selector"></view>
-      <!-- <button loading="{{ true }}" bindtap="clickButton">this is mpx button</button>
-      <icon type="success" color="red"></icon> -->
-      <view class="tabbar" bindtap="toPackageACat">fixed</view>
-      <scroll-view class="scroll-view" scrollY="{{true}}">
-        <view class="scroll-view-item">1</view>
-        <view class="scroll-view-item">2</view>
-        <view class="scroll-view-item">3</view>
-        <view class="scroll-view-item">4</view>
-        <view class="scroll-view-item">5</view>
-        <view class="scroll-view-item">6</view>
-        <view class="scroll-view-item">7</view>
-      </scroll-view>
-    </view>
-    <list my-class="red-text"></list>
-    <button bindtap="upload">上传文件</button>
-    <button bindtap="testMock">发送请求，测试mock</button>
-    <button bindtap="resetToken">reset token</button>
-    <mp-dialog title="test" show="{{true}}" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消'}, {text: '确认'}]}}">
-      <view>test content</view>
-    </mp-dialog>
+  <view class="container">
+    <view wx:if="{{isShow}}">this is a view</view>
+    <view wx:ref="messageRef">{{message}}</view>
+    <list wx:ref="listRef"></list>
   </view>
 </template>
 
 <script>
   import mpx, { createPage } from '@mpxjs/core'
-  import utils from 'src/lib/utils'
-  import store from 'src/store'
-  // console.log('index app: ', getApp())
-  // console.log('apiProxy: ', mpx.request)
-  // console.log('utils: ', utils())
 
-  function func1 () {
-    return Promise.resolve()
-  }
-
-  async function func2 () {
-    await func1()
-    Promise.resolve().then(() => {
-
-    })
-  }
-
-  func2()
-
-  setTimeout(() => {
-    func2()
-  }, 100)
-
-  
   createPage({
-    mixins: [{
-      haha () {
-        return 'haha'
-      }
-    }, {
-      methods: {
-        haha1 () {
-          return 'haha1'
-        }
-      }
-    }],
-    options: {
-      aaa: 123
-    },
     data: {
-      pageName: 'index',
-      dialogShow: false,
-      showOneButtonDialog: false,
-      buttons: [{text: '取消'}, {text: '确定'}],
-      isActive: true,
-      list: '12345'
+      isShow: true,
+      message: 'this is a message'
     },
-    computed: {
-      ...store.mapGetters(['token'])
-    },
-    watch: {
-      token: {
-        handler (newVal, oldVal) {
-          console.log('token: ', newVal, oldVal, newVal === undefined)
-        },
-        immediate: true
-      }
-    },
-    onShow () {
-      // console.log(1111111)
-      // console.log('this.$options: ', this.$options)
-      // console.log('this.options: ', this.$options.options) 
-      console.log('mixins in page: ', this.haha)
-    },
-    onPageScroll (e) {
-      console.log('onPageScroll - scrollTop: ', e.scrollTop)
-    },
-    onPullDownRefresh: function () {
-      console.log('onPullDownRefresh')
-    },
-    onReachBottom: function () {
-      console.log('onReachBottom: ', this.buttons)
-    },
-    methods: {
-      ...store.mapMutations(['setToken']),
-      resetToken () {
-        this.setToken(undefined)
-      },
-      toListPage () {
-        wx.navigateTo({
-          url: '/pages/list',
-          success: res => {
-            console.log('res: ', res)
-          }
-        })
-      },
-      toPackageACat () {
-        wx.navigateTo({
-          url: '/packageA/cat'
-        })
-      },
-      toPackageBDog () {
-        wx.navigateTo({
-          url: '/packageB/dog'
-        })
-      },
-      tapDialogButton () {
-        this.dialogShow = false
-        this.showOneButtonDialog = false
-      },
-      showDialog () {
-        this.dialogShow = true
-      },
-      switchActiveStatus () {
-        this.isActive = !this.isActive
-      },
-      clickButton () {},
-      scrollToSelector () {
-        wx.pageScrollTo({
-          scrollTop: 1500,
-          // selector: '#selector',
-          duration: 3000,
-          success: function (params) {
-            console.log('success: ', params)
-          },
-          complete: function (params) {
-            console.log('complete: ', params)
-          }
-        })
-      },
-      startPullDown () {
-        wx.startPullDownRefresh()
-      },
-      stopPullDown () {
-        wx.stopPullDownRefresh()
-      },
-      upload () {
-        var uploadTask = wx.uploadFile({
-          url: 'http://localhost:8085/a/b/c',
-          filePath: '/dog.jpg',
-          name: 'file',
-          formData: {
-            a: 1,
-            b: 2
-          },
-          success: function success(data) {
-            console.log('data: ', data);
-          }
-        });
-
-        uploadTask.onProgressUpdate(res => {
-          console.log('res: ', res)
-        })
-
-        console.log('uploadTask: ', uploadTask.onProgressUpdate);
-      },
-      testMock () {
-        const rule = {
-          test: {
-            url: '',
-            data: {},
-            header: {},
-            method: 'get',
-          },
-          custom: () => Boolean,
-          proxy: {
-            url: 'https://127.0.0.1:8080',
-            data: {
-              a: 1
-            },
-            header: {
-              env: 'dev'
-            },
-            method: 'get'
-          },
-          waterfall: false
-        }
-        mpx.xfetch.setProxy([
-          rule
-        ])
-        mpx.xfetch.fetch({
-          url: 'http://localhost:8085/a/b/c'
-        }).then(res => {
-          console.log(res.data)
-        })
-
-        // wx.request({
-        //   url: 'http://localhost:8085/a/b/c',
-        //   success: (res) => {
-        //     console.log('success: ', res)
-        //   },
-        //   fail: (res) => {
-        //     console.log('fail: ', res)
-        //   }
-        // })
-      }
+    onReady () {
+      this.$refs.listRef.testFn()
     }
   })
 </script>
@@ -244,16 +27,16 @@
     // "mp-dialog": "weui-miniprogram/dialog/dialog"
   }
   module.exports = {
-    // "usingComponents": __mpx_mode__ === 'wx' 
-    //   ? Object.assign({}, wxComponents)
-    //   : {
-    //     list: 'src/components/list'
-    //     // "mpx-button": "@mpxjs/webpack-plugin/lib/runtime/components/web/mpx-button.vue"
-    //     // "mpx-navigation-bar": "@mpxjs/webpack-plugin/lib/runtime/components/web/mpx-navigation-bar.vue"
-    //   },
-    usingComponents: {
-      'mp-dialog': '@weui-miniprogram/miniprogram_dist/dialog/dialog'
-    },
+    "usingComponents": __mpx_mode__ === 'wx' 
+      ? Object.assign({}, wxComponents)
+      : {
+        list: 'src/components/list'
+        // "mpx-button": "@mpxjs/webpack-plugin/lib/runtime/components/web/mpx-button.vue"
+        // "mpx-navigation-bar": "@mpxjs/webpack-plugin/lib/runtime/components/web/mpx-navigation-bar.vue"
+      },
+    // usingComponents: {
+    //   // 'mp-dialog': '@weui-miniprogram/miniprogram_dist/dialog/dialog'
+    // },
     "navigationBarTitleText": "首页123",
     "navigationBarBackgroundColor": "#ccc",
     "navigationBarTextStyle": "white",

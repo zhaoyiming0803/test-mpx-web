@@ -1,5 +1,5 @@
 <template>
-  <view>this is list.mpx</view>
+  <view class="list-container">this is list.mpx</view>
 </template>
 
 <script>

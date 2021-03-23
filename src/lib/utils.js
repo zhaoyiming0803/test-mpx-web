@@ -3,6 +3,15 @@
 
 // mpx.use(apiProxy)
 
-export default function () {
+export const getStorageSync = () => {
   return wx.getStorageSync('abab')
+}
+
+let person = {
+  name: 'zhaoyiming',
+  age: 18
+}
+
+export const getPersonInfo = () => {
+  console.log('person.name: ', person.name)
 }

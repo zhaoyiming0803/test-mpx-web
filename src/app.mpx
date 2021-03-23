@@ -6,11 +6,30 @@
   
   mpx.use(mpxFetch)
   mpx.use(apiProxy)
+
+  mpx.mixin({
+    onLaunch () {
+      console.log('onLaunch hello world')
+    },
+    abc () {
+      return 123
+    }
+  }, 'app')
   
   // app.js
   createApp({
+    globalData: {
+      a: 100,
+      b: 200
+    },
+    abc () {
+      return 456
+    },
     onLaunch () {
       
+    },
+    onShow (options) {
+      console.log('app onshow.....', options)
     }
   })
 
@@ -20,8 +39,10 @@
 </script>
 
 <style>
+/*
  @import '~weui-miniprogram/miniprogram_dist/weui-wxss/dist/style/weui.wxss';
  @import '~weui-miniprogram/miniprogram_dist/weui-wxss/dist/style/icon/weui-icon.wxss';
+ */
 </style>
 
 <script name="json">
@@ -42,12 +63,15 @@
     //     }
     //   ]
     // },
-    "preloadRule": {
-      "pages/index": {
-        "network": "all",
-        "packages": ["packageA"]
-      }
-    },
+    packages: [
+      './subpackage/home/app.mpx?root=home'
+    ],
+    // "preloadRule": {
+    //   "pages/index": {
+    //     "network": "all",
+    //     "packages": ["packageA"]
+    //   }
+    // },
     "window": {
       "backgroundTextStyle": "light",
       "navigationBarBackgroundColor": "#fff",
@@ -59,8 +83,8 @@
       "request": 10000,
       "downloadFile": 10000
     },
-    "useExtendedLib": {
-      "weui": true
-    }
+    // "useExtendedLib": {
+    //   "weui": true
+    // }
   }
 </script>

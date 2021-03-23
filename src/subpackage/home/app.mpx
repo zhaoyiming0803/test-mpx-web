@@ -1,0 +1,10 @@
+<script name="json">
+  module.exports = {
+    pages: [
+      './pages/index'
+    ],
+    packages: [
+      './subpackage/homepage/app.mpx?root=homepage'
+    ]
+  }
+</script>

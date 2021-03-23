@@ -14,6 +14,9 @@ const webpackConf = {
   entry: {
     app: resolveSrc('app.mpx')
   },
+  output: {
+    publicPath: 'a/b/c'
+  },
   module: {
     rules: [
       {

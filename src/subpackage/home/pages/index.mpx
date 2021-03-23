@@ -1,0 +1,43 @@
+<template>
+  <view class="home-container">
+    <view bindtap="toSubSubPackage">hello sub page</view>
+  </view>
+</template>
+
+<script>
+import mpx, { createPage } from '@mpxjs/core'
+import { a } from 'src/lib/test?root=home'
+import HomePageSubpackage from '../subpackage/homepage/pages/index.mpx?resolve'
+console.log('HomePageSubpackage: ', HomePageSubpackage)
+createPage({
+  mixins: [{
+    onLoad () {
+      setTimeout(() => {
+         console.log('112233')
+      })
+    }
+  }],
+  onLoad () {
+    console.log('445566 ', getApp())
+    console.log('mpx.getStorageSync::: ', mpx.getStorageSync)
+  },
+  methods: {
+    toSubSubPackage () {
+      mpx.navigateTo({
+        // url: HomePageSubpackage
+        // url: '../../homepage/pages/index',
+        url: '/homepage/pages/index'
+      })
+    }
+  }
+})
+</script>
+
+<script name="json">
+module.exports = {}
+</script>
+
+<style lang="stylus" scoped>
+.home-container
+  color blue
+</style>

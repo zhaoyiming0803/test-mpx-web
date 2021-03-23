@@ -3,14 +3,20 @@
 </template>
 
 <script>
-  import { createPage } from '@mpxjs/core'
+  import mpx, { createComponent } from '@mpxjs/core'
 
-  createPage({
+  createComponent({
     created () {
       console.log('list this: ', this.$options)
     }
   })
 </script>
+
+<style>
+  .list-container {
+    color: red;
+  }
+</style>
 
 <script name="json">
   const config = {

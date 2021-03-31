@@ -10,6 +10,8 @@
 <script>
   import mpx, { createPage } from '@mpxjs/core'
   import { getPersonInfo } from 'src/lib/utils'
+  
+  import { isEqual } from 'lodash'
 
   getPersonInfo()
 
@@ -20,6 +22,7 @@
     },
     onReady () {
       this.$refs.listRef.testFn()
+      console.log('sdfsdf: ', isEqual(1, 1))
     },
     toSubpackage () {
       // mpx.navigateTo({

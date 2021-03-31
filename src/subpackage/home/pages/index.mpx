@@ -24,9 +24,9 @@ createPage({
   methods: {
     toSubSubPackage () {
       mpx.navigateTo({
-        // url: HomePageSubpackage
+        url: HomePageSubpackage
         // url: '../../homepage/pages/index',
-        url: '/homepage/pages/index'
+        // url: '/homepage/pages/index'
       })
     }
   }

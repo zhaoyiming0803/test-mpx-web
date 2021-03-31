@@ -1,6 +1,5 @@
 const path = require('path')
 const MpxWebpackPlugin = require('@mpxjs/webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
 
 const mainSubDir = ''
 function resolveSrc (file) {

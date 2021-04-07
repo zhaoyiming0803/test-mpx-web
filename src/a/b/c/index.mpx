@@ -1,0 +1,25 @@
+<template>
+  <view class="container">
+    a/b/c/index.mpx
+  </view>
+</template>
+
+<script>
+  import mpx, { createPage } from '@mpxjs/core'
+
+  createPage({
+    
+  })
+</script>
+
+<script name="json">
+  module.exports = {
+    
+  }
+</script>
+
+<style lang="scss">
+.container {
+  color: #f00;
+}
+</style>

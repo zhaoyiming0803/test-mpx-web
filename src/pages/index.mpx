@@ -10,8 +10,9 @@
 <script>
   import mpx, { createPage } from '@mpxjs/core'
   import { getPersonInfo } from 'src/lib/utils'
-  
+  import Subpackage1PageIndex from '../subpackage1/home/pages/index?resolve'
   import { isEqual } from 'lodash'
+  // import isEqual from 'lodash/isEqual'
 
   getPersonInfo()
 
@@ -21,13 +22,16 @@
       message: 'this is a message'
     },
     onReady () {
-      this.$refs.listRef.testFn()
-      console.log('sdfsdf: ', isEqual(1, 1))
+      // this.$refs.listRef && this.$refs.listRef.testFn()
+      console.log('isEqual(1, 1): ', isEqual(1, 1))
     },
     toSubpackage () {
-      // mpx.navigateTo({
-      //   url: '../home/pages/index'
-      // })
+      mpx.navigateTo({
+        url: Subpackage1PageIndex
+      }).catch(error => {
+        console.log('error: ', error)
+      })
+      return
       mpx.navigateBack({
         fail: (e) => {
           console.log(e)
@@ -46,7 +50,9 @@
 
 <script name="json">
   const wxComponents = {
-    list: 'src/components/list'
+    list1: 'src/components1/list',
+    list2: 'src/components2/list',
+    list3: './list'
     // "mp-icon": "weui-miniprogram/icon/icon",
     // "mp-dialog": "weui-miniprogram/dialog/dialog"
   }

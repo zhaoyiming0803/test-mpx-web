@@ -8,10 +8,12 @@
 import mpx, { createPage } from '@mpxjs/core'
 import { a } from 'src/lib/test?root=home'
 import HomePageSubpackage from '../subpackage/homepage/pages/index.mpx?resolve'
-console.log('HomePageSubpackage: ', HomePageSubpackage)
+// const HomePageSubpackage = require('../subpackage/homepage/pages/index.mpx?resolve')
+// const HomePageSubpackage = require('@didi/596-mpx-ali-home/src/pages/index.mpx?resolve')
+// console.log('HomePageSubpackage: ', HomePageSubpackage)
 createPage({
   mixins: [{
-    onLoad () {
+    onLoad () { 
       setTimeout(() => {
          console.log('112233')
       })

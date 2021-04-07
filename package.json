@@ -51,7 +51,6 @@
     "html-webpack-plugin": "^4.5.2",
     "http-server": "^0.12.0",
     "jquery": "^3.5.1",
-    "lodash-webpack-plugin": "^0.11.6",
     "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
     "ora": "^2.0.0",

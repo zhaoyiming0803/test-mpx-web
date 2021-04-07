@@ -3,6 +3,12 @@
   import apiProxy from '@mpxjs/api-proxy'
   // import './mock/index'
   import mpxFetch from '@mpxjs/fetch'
+  // import appOptions from './appOptions'
+  const appOptions = require('./appOptions').default
+
+  console.log('appOptions: ', appOptions)
+
+  mpx.mixin(appOptions, 'app')
   
   mpx.use(mpxFetch)
   mpx.use(apiProxy)
@@ -18,10 +24,10 @@
   
   // app.js
   createApp({
-    globalData: {
-      a: 100,
-      b: 200
-    },
+    // globalData: {
+    //   a: 100,
+    //   b: 200
+    // },
     abc () {
       return 456
     },
@@ -48,7 +54,8 @@
 <script name="json">
   module.exports = {
     "pages": [
-      "./pages/index"
+      "./pages/index",
+      "./a/b/c/index"
     ],
     // "tabBar": {
     //   "custom": false,
@@ -64,7 +71,9 @@
     //   ]
     // },
     packages: [
-      './subpackage/home/app.mpx?root=home'
+      './subpackage1/home/app.mpx?root=home1',
+      './subpackage2/home/app.mpx?root=home2',
+      './subpackage3/app.mpx?root=home3'
     ],
     // "preloadRule": {
     //   "pages/index": {

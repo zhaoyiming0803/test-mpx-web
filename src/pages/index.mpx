@@ -2,7 +2,6 @@
   <view class="container">
     <view wx:if="{{isShow}}">this is a view</view>
     <view wx:ref="messageRef">{{message}}</view>
-    <list wx:ref="listRef"></list>
     <view bindtap="toSubpackage">去分包</view>
   </view>
 </template>
@@ -20,6 +19,11 @@
     data: {
       isShow: true,
       message: 'this is a message'
+    },
+    onLoad (options) {
+      // 支付宝小程序中 options 对象没有 __proto__
+      console.log('index.mpx options: ', options.__proto__)
+      console.log('sdfsdf: ', options.hasOwnProperty)
     },
     onReady () {
       // this.$refs.listRef && this.$refs.listRef.testFn()
@@ -60,7 +64,6 @@
     "usingComponents": __mpx_mode__ === 'wx' 
       ? Object.assign({}, wxComponents)
       : {
-        list: 'src/components/list'
         // "mpx-button": "@mpxjs/webpack-plugin/lib/runtime/components/web/mpx-button.vue"
         // "mpx-navigation-bar": "@mpxjs/webpack-plugin/lib/runtime/components/web/mpx-navigation-bar.vue"
       },

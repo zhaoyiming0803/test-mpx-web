@@ -1,0 +1,28 @@
+<template>
+  <view class="container">
+    <view>list-page.mpx</view>
+  </view>
+</template>
+
+<script>
+  import mpx, { createPage } from '@mpxjs/core'
+
+  createPage({
+    data: {
+      isShow: true,
+      message: 'this is a message'
+    }
+  })
+</script>
+
+<script name="json">
+  module.exports = {
+    
+  }
+</script>
+
+<style lang="scss">
+.container {
+  color: #f00;
+}
+</style>

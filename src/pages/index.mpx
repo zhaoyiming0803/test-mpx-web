@@ -31,7 +31,8 @@
     },
     toSubpackage () {
       mpx.navigateTo({
-        url: Subpackage1PageIndex
+        // url: Subpackage1PageIndex
+        url: './list-page'
       }).catch(error => {
         console.log('error: ', error)
       })

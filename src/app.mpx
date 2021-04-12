@@ -55,6 +55,7 @@
   module.exports = {
     "pages": [
       "./pages/index",
+      "./pages/list-page",
       "./a/b/c/index"
     ],
     // "tabBar": {
@@ -73,7 +74,9 @@
     packages: [
       './subpackage1/home/app.mpx?root=home1',
       './subpackage2/home/app.mpx?root=home2',
-      './subpackage3/app.mpx?root=home3'
+      './subpackage3/app.mpx?root=home3',
+      './subpackage4/app.mpx?root=home-sub',
+      './subpackage5/app.mpx?root=home-sub'
     ],
     // "preloadRule": {
     //   "pages/index": {

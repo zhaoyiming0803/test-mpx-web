@@ -1,0 +1,22 @@
+<template>
+  <view class="home-container">
+    <view bindtap="toSubSubPackage">subpackage4 / pages / index</view>
+  </view>
+</template>
+
+<script>
+  import { createPage } from '@mpxjs/core'
+
+  createPage({
+    
+  })
+</script>
+
+<script name="json">
+  module.exports = {}
+</script>
+
+<style lang="stylus" scoped>
+  .home-container
+    color blue
+</style>

@@ -1,6 +1,7 @@
 <template>
   <view class="home-container">
     <view bindtap="toSubSubPackage">hello sub page</view>
+    <list1></list1>
   </view>
 </template>
 
@@ -36,7 +37,11 @@ createPage({
 </script>
 
 <script name="json">
-module.exports = {}
+module.exports = {
+  usingComponents: {
+    'list1': 'src/components1/list'
+  }
+}
 </script>
 
 <style lang="stylus" scoped>

@@ -5,9 +5,12 @@ import { createStore } from '@mpxjs/core'
 // import state from './state'
 import loginModule from './login'
 
+const icon = require('src/static/icon.png')
+
 const moduleA = {
   state: {
-    token: wx.getStorageSync('token')
+    token: wx.getStorageSync('token'),
+    iconPath: icon
   }
 }
 

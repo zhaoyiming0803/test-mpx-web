@@ -1,6 +1,8 @@
 <template>
   <view class="home-container">
     <view bindtap="toSubSubPackage">hello sub page</view>
+    <images src="{{iconPath}}"></images>
+    <list1></list1>
   </view>
 </template>
 
@@ -12,6 +14,9 @@ import HomePageSubpackage from '../subpackage/homepage/pages/index.mpx?resolve'
 // const HomePageSubpackage = require('@didi/596-mpx-ali-home/src/pages/index.mpx?resolve')
 // console.log('HomePageSubpackage: ', HomePageSubpackage)
 createPage({
+  data: {
+    iconPath: icon
+  },
   mixins: [{
     onLoad () { 
       setTimeout(() => {
@@ -36,7 +41,11 @@ createPage({
 </script>
 
 <script name="json">
-module.exports = {}
+module.exports = {
+  usingComponents: {
+    'list1': 'src/components1/list'
+  }
+}
 </script>
 
 <style lang="stylus" scoped>

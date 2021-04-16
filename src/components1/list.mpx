@@ -6,6 +6,7 @@
 
 <script>
   import { createComponent } from '@mpxjs/core'
+  import store from 'src/store' 
 
   createComponent({
     mixins: [{

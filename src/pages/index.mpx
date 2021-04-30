@@ -3,6 +3,7 @@
     <view wx:if="{{isShow}}">this is a view</view>
     <view wx:ref="messageRef">{{message}}</view>
     <view bindtap="toSubpackage">去分包</view>
+    <view bindtap="toListPage">去listPage</view>
   </view>
 </template>
 
@@ -49,6 +50,20 @@
           })
         }
       })
+    },
+    methods: {
+      toListPage () {
+        const page = wx.navigateTo({
+          url: '/pages/list-page',
+          success: res => {
+            // console.log('res1: ', getCurrentPages())
+            // setTimeout(() => {
+            //   console.log('res2: ', getCurrentPages())
+            // })
+          }
+        })
+        // console.log('page: ', page)
+      }
     }
   })
 </script>

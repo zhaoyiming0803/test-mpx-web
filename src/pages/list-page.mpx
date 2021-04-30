@@ -11,6 +11,9 @@
     data: {
       isShow: true,
       message: 'this is a message'
+    },
+    onLoad () {
+      console.log('hello route: ', getCurrentPages()[0].route)
     }
   })
 </script>

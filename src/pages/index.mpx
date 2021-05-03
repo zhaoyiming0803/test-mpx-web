@@ -4,6 +4,9 @@
     <view wx:ref="messageRef">{{message}}</view>
     <view bindtap="toSubpackage">去分包</view>
     <view bindtap="toListPage">去listPage</view>
+    
+    <wxs src="./module.wxs" module="indexModule"></wxs>
+    <view wx:if="{{ indexModule.isShowView(arrData, 1) }}">hello index.mpx</view>
   </view>
 </template>
 
@@ -19,7 +22,8 @@
   createPage({
     data: {
       isShow: true,
-      message: 'this is a message'
+      message: 'this is a message',
+      arrData: [1, 2, 3, 4]
     },
     onLoad (options) {
       // 支付宝小程序中 options 对象没有 __proto__

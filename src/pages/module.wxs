@@ -1,0 +1,12 @@
+var isShowView = function (arrData, value) {
+  for (var i = 0; i < arrData.length; i++) {
+    if (arrData[i] === value) {
+      return true
+    }
+  }
+  return false
+}
+
+module.exports = {
+  isShowView: isShowView
+}

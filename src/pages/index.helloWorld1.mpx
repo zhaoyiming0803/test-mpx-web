@@ -1,21 +1,6 @@
 <template>
   <view class="container">
-    <view wx:if="{{isShow}}">this is a view</view>
-    <view wx:ref="messageRef">{{message}}</view>
-    <view bindtap="toSubpackage">去分包</view>
-    <view bindtap="toListPage">去listPage</view>
-    
-    <view>--------</view>
-    <view hehe@wx|ali="123">env: {{ __mpx_env__ }}</view>
-    <list1></list1>
-    <view>--------</view>
-
-    <view>112233445566: {{ isIphoneX }}</view>
-    
-    <!--
-    <wxs src="./module.wxs" module="indexModule"></wxs>
-    <view wx:if="{{ indexModule.isShowView(arrData, 1) }}">hello index.mpx</view>
-    -->
+    index.helloWorld.mpx
   </view>
 </template>
 

@@ -84,7 +84,8 @@ modeArr.forEach(item => {
   const plugins = [
     new MpxWebpackPlugin(Object.assign({
       mode: item,
-      srcMode: userSelectedMode
+      srcMode: userSelectedMode,
+      env: 'helloWorld'
     }, mpxWebpackPluginConfig))
   ]
   const copyList = [{

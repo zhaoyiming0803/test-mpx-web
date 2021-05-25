@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <view>list-page.mpx</view>
+    <view>list-page..mpx</view>
   </view>
 </template>
 

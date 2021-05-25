@@ -1,21 +1,14 @@
 <template>
   <view class="container">
-    <view wx:if="{{isShow}}">this is a view</view>
-    <view wx:ref="messageRef">{{message}}</view>
-    <view bindtap="toSubpackage">去分包</view>
-    <view bindtap="toListPage">去listPage</view>
-    
-    <view>--------</view>
-    <view hehe@wx|ali="123">env: {{ __mpx_env__ }}</view>
-    <list1></list1>
-    <view>--------</view>
+    index.ali.helloWorld.mpx
+    <view hello@@@ali:helloWorld="getUserInfo">env: {{ __mpx_env__ }}</view>
+  </view>
+</template>
 
-    <view>112233445566: {{ isIphoneX }}</view>
-    
-    <!--
-    <wxs src="./module.wxs" module="indexModule"></wxs>
-    <view wx:if="{{ indexModule.isShowView(arrData, 1) }}">hello index.mpx</view>
-    -->
+<template mode="wx">
+  <view class="container">
+    index.ali.helloWorld.mpx - 12345
+    <view hello@@@ali:helloWorld="getUserInfo">env: {{ __mpx_env__ }}</view>
   </view>
 </template>
 
@@ -28,14 +21,11 @@
 
   getPersonInfo()
 
-  const model = wx.getSystemInfoSync().model
-
   createPage({
     data: {
       isShow: true,
       message: 'this is a message',
-      arrData: [1, 2, 3, 4],
-      isIphoneX: (model && (model.indexOf('iPhone X') > -1 || model.indexOf('iPhone 11') > -1)) || model.indexOf('iPhone 12') > -1
+      arrData: [1, 2, 3, 4]
     },
     onLoad (options) {
       // 支付宝小程序中 options 对象没有 __proto__
@@ -113,7 +103,7 @@
   }
 </script>
 
-<style lang="scss" env="helloWorld">
+<style lang="scss">
 .container {
   color: #f00;
 }

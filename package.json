@@ -16,7 +16,9 @@
     "watchwebpure": "npm run watch --web",
     "httpserver": "npx http-server dist/web",
     "help": "node ./build/build.js --help",
-    "prod": "node --max-old-space-size=8192 ./build/build.js -p"
+    "prod": "node --max-old-space-size=8192 ./build/build.js -p",
+    "wxAndAli": "npx npm-run-all --parallel 'watch --wx --ali' httpserver",
+    "ali": "npm run watch --ali"
   },
   "author": "zhaoyiming",
   "license": "ISC",
